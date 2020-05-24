@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Theatre</title>
+    <link rel="stylesheet" href="./static/style.css">
+</head>
+
+<body>
+    <header class="page__header">
+        <h1 align="center">Выявление аномалий относительно нормального поведения</h1>
+        <h3 align="center">Загрузите показатели датчика в формате .csv</h3>
+        <form action="/submit" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <button type="/submit" class="btn btn-primary btn-block btn-large">Обработать</button>
+         </form>
+    </header>
+    <nav class="nav"> {% if isIndex %} <h1>Выявленные аномалии</h1> {% endif %}
+        <table>
+        {{ prediction_text }}
+    </nav>
+    <article class="article"> {% if isIndex %} <h1>Данные относительно определенного порога</h1> {% endif %}
+        {{ prediction_img }}
+    </article>
+</body>
